@@ -20,10 +20,13 @@
     <p style="font-size: 2vw; padding-bottom: 8vh;">In interaction design, a <span style="color: #007AFF;">persona</span> is a fictional representation of a user that helps designers understand their target audience. Personas are created based on user research and represent different user types, including their goals, behaviors, needs, and pain points.</p>
     <p style="font-size: 2vw; padding-bottom: 8vh;"> Today, we will explore the user interface of a <span style="color: #007AFF;">CVS Pharmacy self-checkout machine</span> through the use of personas and storyboarding.</p>
     <p style="font-size: 2vw; padding-bottom: 17vh;"> Let's start by taking a look into the setup of this interface.</p>
+</div>
     <div class="subtitle1 hidden"> <div style="font-weight: 600; color: #00C2A8">Exploring the Interface</div>
-    <div>
-    <img class="imgContainer hidden" src="cvsSketch.png"></div>
+ <div>
+    <img class="imgContainer hidden" src="cvsSketch.png">
     <p style="font-size: 2vw; padding-bottom: 8vh;"> This machine aims to provide a smoother checkout for customers where they have autonomy over the purchasing process. It creates a more efficient and convenient experience for users who prefer to avoid the lines for the cashier.</p>
+</div>
+</div>
 </div>
 <div class="textContainer hidden">
 <div class="subtitle1 hidden" style="margin-bottom: 8vh;"> <div style="font-weight: 600; padding-bottom: 4vh;color: #00C2A8">Collecting Data</div>
@@ -64,7 +67,7 @@ He represents the user that uses self-checkout machines for convenience and spee
 </div>
     <img class="imgContainer hidden" src="persona1.png" alt="Persona 1" class="persona">
     <div class="subtitlePersona2 hidden"> <div style="font-weight: 600;">Persona 2</div>
-    <div>Confused Callie</div></div>
+    <div>Confused Callie</div>
     <div style=" font-size: 1.5vw; padding-left: 20vw; margin-top: 2vh; text-align: right;">Confused Callie is not a tech savvy girl and has a general distrust of cashiers. She likes to be in control of what she buys.</div>
     <div style=" font-size: 1.5vw; padding-left: 20vw; margin-top: 2vh; text-align: right;"> She represents the user that wants to watch over their own purchase. Although she doesn't quite understand how to use the machine, she would rather this over a cashier.</div>
     <img class="imgContainer hidden" src="persona2.png" alt="Persona 2" class="persona">
@@ -79,17 +82,23 @@ He represents the user that uses self-checkout machines for convenience and spee
 
 <p style="font-size: 2vw; padding-bottom: 8vh;">This study of interaction can help us to better understand users and properly design with groups in mind. <span style="color: #007AFF;">Data collection, persona crafting, storyboard building </span> are essential components in understanding a user population and designing effective interfaces.</p>
 <script>
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-            }
-        });
-    }, { threshold: 0.1 });
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                } else {
+                    entry.target.classList.remove('show');
+                }
+            });
+        }, { threshold: 0.1 });
 
-    document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
-    const scrollArrow = document.getElementById('scrollArrow');
-    window.addEventListener('scroll', () => {
+        document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
+    });
+
+        // Scroll arrow visibility logic
+        const scrollArrow = document.getElementById('scrollArrow');
+        window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 scrollArrow.classList.add('hidden-arrow');
             } else {
@@ -97,5 +106,6 @@ He represents the user that uses self-checkout machines for convenience and spee
             }
         });
 </script>
+
 </body>
 </html>
